@@ -12,16 +12,19 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-
+import environ
+import sys
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-1g1a#021$%2o&$=g%htb*5hwr4lx6plq68o9@itqz%t^e$v!j0'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -86,19 +89,29 @@ DATABASES = {
     }
 }
 '''
-
+'''
 DATABASES = {
   'default':{  
     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    'NAME' : 'church server',
-    'USER' : 'postgres',
-    'PASSWORD': 'daviper1',
-    'HOST' : 'localhost',
-    'PORT':'5432'
+    'NAME' : 'DB_NAME',
+    'USER' : 'DB_USER',
+    'PASSWORD': 'DB_PASS',
+    'HOST' : 'DB_HOST',
+    'PORT':'DB_PORT'
 }
 }
 
-
+'''
+DATABASES = {
+    "default": {
+        'ENGINE': 'django.db.backends.postgresql',
+        'DB_NAME': env("DB_NAME"),
+        'DB_USER': env("DB_USER"),
+        'DB_PASSWORD': env("DB_PASSWORD"),
+        'DB_HOST': env("DB_HOST"),
+        'DB_PORT': env("DB_PORT"),
+    }
+}
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
