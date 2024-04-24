@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-cg4p^d-w9i_dcm(b^bx6w40y&d@r_64r(3k+y=6w(^i+vsbye$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','churchofchristojodu.org']
+ALLOWED_HOSTS = ['127.0.0.1','churchofchristojodu.org','church-of-christ.up.railway.app']
 
 
 # Application definition
