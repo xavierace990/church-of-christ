@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-cg4p^d-w9i_dcm(b^bx6w40y&d@r_64r(3k+y=6w(^i+vsbye$
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1','churchofchristojodu.org','church-of-christ.up.railway.app']
-
+CSRF_TRUSTED_ORIGINS = ['https://church-of-christ.up.railway.app','https://churchofchristojodu.org']
 
 # Application definition
 
